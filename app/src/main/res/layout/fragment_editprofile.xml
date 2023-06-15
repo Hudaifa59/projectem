@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,58 +14,74 @@
             android:id="@+id/Update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="21dp"
+            android:layout_marginBottom="133dp"
             android:text="Update profile"
-            tools:layout_editor_absoluteX="151dp"
-            tools:layout_editor_absoluteY="550dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/upephone"
+            app:layout_constraintTop_toBottomOf="@+id/upephone" />
 
         <EditText
             android:id="@+id/upetcar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="27dp"
             android:ems="10"
             android:hint="Carnumber"
             android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="100dp"
-            tools:layout_editor_absoluteY="293dp" />
+            app:layout_constraintBottom_toTopOf="@+id/upetid"
+            app:layout_constraintStart_toStartOf="@+id/upusername"
+            app:layout_constraintTop_toBottomOf="@+id/upusername" />
 
         <EditText
             android:id="@+id/upetid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="33dp"
             android:ems="10"
             android:hint="id"
             android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="100dp"
-            tools:layout_editor_absoluteY="365dp" />
+            app:layout_constraintBottom_toTopOf="@+id/upephone"
+            app:layout_constraintStart_toStartOf="@+id/upetcar"
+            app:layout_constraintTop_toBottomOf="@+id/upetcar" />
 
         <EditText
             android:id="@+id/upephone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="62dp"
             android:backgroundTint="#FFFF"
             android:ems="10"
             android:hint="phone"
             android:inputType="phone"
-            tools:layout_editor_absoluteX="100dp"
-            tools:layout_editor_absoluteY="443dp" />
+            app:layout_constraintBottom_toTopOf="@+id/Update"
+            app:layout_constraintStart_toStartOf="@+id/upetid"
+            app:layout_constraintTop_toBottomOf="@+id/upetid" />
 
         <EditText
             android:id="@+id/upusername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="73dp"
             android:ems="10"
             android:hint="name...."
             android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="100dp"
-            tools:layout_editor_absoluteY="175dp" />
+            app:layout_constraintBottom_toTopOf="@+id/upetcar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upprofileimage" />
 
         <ImageView
             android:id="@+id/upprofileimage"
             android:layout_width="138dp"
-            android:layout_height="107dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="67dp"
             android:src="@drawable/user"
-            tools:layout_editor_absoluteX="137dp"
-            tools:layout_editor_absoluteY="1dp" />
+            app:layout_constraintBottom_toTopOf="@+id/upusername"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

@@ -16,10 +16,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         connectcommponents();
-        if (savedInstanceState == null) {
+        fbs=FirebaseServices.getInstance();
+        if (fbs.getAuth().getCurrentUser() == null) {
             getSupportFragmentManager().beginTransaction()
                     .setReorderingAllowed(true)
                     .add(R.id.framMain, LoginFragment.class, null)
+                    .commit();
+        }
+        else {
+            getSupportFragmentManager().beginTransaction()
+                    .setReorderingAllowed(true)
+                    .add(R.id.framMain, Home.class, null)
                     .commit();
         }
     }

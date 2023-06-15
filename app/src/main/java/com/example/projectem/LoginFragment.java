@@ -27,7 +27,7 @@ public class LoginFragment extends Fragment {
 
     private FirebaseServices fbs;
     private EditText user,password;
-    private Button btn,userbt;
+    private Button btn;
     private TextView fp,su;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -89,15 +89,6 @@ public class LoginFragment extends Fragment {
         fp=getView().findViewById(R.id.forgotPasswordtv);
         su=getView().findViewById(R.id.Signuptv);
         fbs = FirebaseServices.getInstance();
-        userbt=getView().findViewById(R.id.UserFragbt);
-        userbt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.framMain, new UserFrag());
-                ft.commit();
-            }
-        });
         fp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -130,7 +121,7 @@ public class LoginFragment extends Fragment {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                                    ft.replace(R.id.framMain, new Profiles());
+                                    ft.replace(R.id.framMain, new Home());
                                     ft.commit();
                                 }
                                 else {

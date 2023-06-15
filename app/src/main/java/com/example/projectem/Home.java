@@ -2,11 +2,15 @@ package com.example.projectem;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,6 +19,7 @@ import android.view.ViewGroup;
  */
 public class Home extends Fragment {
 
+    BottomNavigationView bottomNavigationView;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -60,5 +65,31 @@ public class Home extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        bottomNavigationView=getView().findViewById(R.id.bottomnav);
+        if (bottomNavigationView.getSelectedItemId()==R.id.profile){
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.framehome, new Profilepage()).commit();
+        }
+        bottomNavigationView.setOnItemSelectedListener(item ->{
+                if (item.getItemId() == R.id.profile) {
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.framehome, new Profilepage()).commit();
+                }
+                if (item.getItemId() == R.id.tasks) {
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.framehome, new Tasks()).commit();
+                }
+                if (item.getItemId() == R.id.icCar) {
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.framehome, new CarFragment()).commit();
+                }
+                if (item.getItemId() == R.id.about) {
+                }
+                if (item.getItemId() == R.id.leaderboard) {
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.framehome, new LeaderBoard()).commit();
+                }
+            return true;
+        });
     }
 }

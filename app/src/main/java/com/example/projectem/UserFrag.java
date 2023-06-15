@@ -134,7 +134,7 @@ public class UserFrag extends Fragment {
                             public void onSuccess(DocumentReference documentReference) {
                                 Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
                                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                                ft.replace(R.id.framMain, new admintask());
+                                ft.replace(R.id.framMain, new Home());
                                 ft.commit();
                             }
                         })

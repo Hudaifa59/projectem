@@ -2,25 +2,30 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:title="Profile"
-        android:icon="@drawable/user">
+        android:icon="@drawable/user"
+        android:id="@+id/profile">
     </item>
     <item
         android:title="Car"
-        android:icon="@drawable/car">
+        android:icon="@drawable/car"
+        android:id="@+id/icCar">
     </item>
     <item
         android:title="Tasks"
-        android:icon="@drawable/clipboard">
+        android:icon="@drawable/clipboard"
+        android:id="@+id/tasks">
 
     </item>
     <item
         android:title="Leaderboard"
-        android:icon="@drawable/podium">
+        android:icon="@drawable/podium"
+        android:id="@+id/leaderboard">
 
     </item>
     <item
         android:title="About"
-        android:icon="@drawable/info">
+        android:icon="@drawable/info"
+        android:id="@+id/about">
 
     </item>
 </menu>

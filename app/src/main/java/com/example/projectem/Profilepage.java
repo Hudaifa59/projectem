@@ -92,7 +92,7 @@ public class Profilepage extends Fragment {
         username=getView().findViewById(R.id.upusername);
         editprof=getView().findViewById(R.id.eteditpf);
         signout=getView().findViewById(R.id.Signout);
-        fbs.getFire().collection("Profile").whereEqualTo("email",fbs.getAuth().getCurrentUser().getEmail())
+        fbs.getFire().collection("Profiles").whereEqualTo("email",fbs.getAuth().getCurrentUser().getEmail())
                 .get()
                 .addOnSuccessListener((QuerySnapshot querySnapshot) -> {
                     if (querySnapshot.isEmpty()) {
@@ -103,7 +103,7 @@ public class Profilepage extends Fragment {
 
                     for (DocumentSnapshot doc : querySnapshot.getDocuments()) {
                         profile=doc.toObject(Profile.class);
-                        eventonchange();
+                        //eventonchange();
                     }
                 })
                 .addOnFailureListener(e -> {
@@ -129,7 +129,7 @@ public class Profilepage extends Fragment {
         });
     }
     private void eventonchange() {
-        points.setText(profile.getPoint());
+        points.setText(""+profile.getPoint());
         username.setText(profile.getUsername());
         StorageReference storageRef= fbs.getStorage().getInstance().getReference().child(profile.getImage());
 

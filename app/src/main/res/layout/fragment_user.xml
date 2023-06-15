@@ -14,58 +14,74 @@
             android:id="@+id/Done"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="51dp"
+            android:layout_marginBottom="133dp"
             android:text="Done"
-            tools:layout_editor_absoluteX="151dp"
-            tools:layout_editor_absoluteY="550dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/ephone"
+            app:layout_constraintTop_toBottomOf="@+id/ephone" />
 
         <EditText
             android:id="@+id/etcar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="27dp"
             android:ems="10"
             android:hint="Carnumber"
             android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="100dp"
-            tools:layout_editor_absoluteY="293dp" />
+            app:layout_constraintBottom_toTopOf="@+id/etid"
+            app:layout_constraintStart_toStartOf="@+id/Username"
+            app:layout_constraintTop_toBottomOf="@+id/Username" />
 
         <EditText
             android:id="@+id/etid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="33dp"
             android:ems="10"
             android:hint="id"
             android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="100dp"
-            tools:layout_editor_absoluteY="365dp" />
+            app:layout_constraintBottom_toTopOf="@+id/ephone"
+            app:layout_constraintStart_toStartOf="@+id/etcar"
+            app:layout_constraintTop_toBottomOf="@+id/etcar" />
 
         <EditText
             android:id="@+id/ephone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="62dp"
             android:backgroundTint="#FFFF"
             android:ems="10"
             android:hint="phone"
             android:inputType="phone"
-            tools:layout_editor_absoluteX="100dp"
-            tools:layout_editor_absoluteY="443dp" />
+            app:layout_constraintBottom_toTopOf="@+id/Done"
+            app:layout_constraintStart_toStartOf="@+id/etid"
+            app:layout_constraintTop_toBottomOf="@+id/etid" />
 
         <EditText
             android:id="@+id/Username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="73dp"
             android:ems="10"
             android:hint="name...."
             android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="100dp"
-            tools:layout_editor_absoluteY="175dp" />
+            app:layout_constraintBottom_toTopOf="@+id/etcar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileimage" />
 
         <ImageView
             android:id="@+id/profileimage"
             android:layout_width="138dp"
-            android:layout_height="107dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="67dp"
             android:src="@drawable/user"
-            tools:layout_editor_absoluteX="137dp"
-            tools:layout_editor_absoluteY="1dp" />
+            app:layout_constraintBottom_toTopOf="@+id/Username"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

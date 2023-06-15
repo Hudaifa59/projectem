@@ -21,16 +21,15 @@ import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Profiles#newInstance} factory method to
+ * Use the {@link Tasks#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Profiles extends Fragment {
+public class Tasks extends Fragment {
     private ArrayList<Task> taskArrayList;
 
     private RecyclerView recyclerViewprofile;
     TaskAdapter taskAdapter;
     FirebaseServices fbs;
-    private ProgressDialog progressDialog;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,7 +40,7 @@ public class Profiles extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Profiles() {
+    public Tasks() {
         // Required empty public constructor
     }
 
@@ -54,8 +53,8 @@ public class Profiles extends Fragment {
      * @return A new instance of fragment Profiles.
      */
     // TODO: Rename and change types and number of parameters
-    public static Profiles newInstance(String param1, String param2) {
-        Profiles fragment = new Profiles();
+    public static Tasks newInstance(String param1, String param2) {
+        Tasks fragment = new Tasks();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -103,17 +102,21 @@ public class Profiles extends Fragment {
     }
 
     private void EventChangeListener() {
-        fbs.getFire().collection("Profiles")
+        fbs.getFire().collection("Tasks")
                 .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         taskArrayList = new ArrayList<Task>();
+                        int i=0;
                         for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                            if (i<4) {
                                 Task task = document.toObject(Task.class);
                                 taskArrayList.add(task);
+                            }
+                            i++;
                         }
-
                         // Create adapter and set it to RecyclerView
+
                         taskAdapter = new TaskAdapter(taskArrayList,getActivity());
                         recyclerViewprofile.setAdapter(taskAdapter);
                     }
@@ -122,41 +125,3 @@ public class Profiles extends Fragment {
 
     }
 }
-/*
-
-           fbs.getFire().collection("Profiles").orderBy("name", Query.Direction.ASCENDING).addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-
-                progressDialog = new ProgressDialog(getActivity());
-                progressDialog.setCancelable(false);
-                progressDialog.setMessage("Fetching data....");
-                progressDialog.show();
-
-                if (error!=null){
-
-                    if (progressDialog.isShowing())
-                    progressDialog.dismiss();
-
-                    Log.e("FireStore error",error.getMessage());
-                    return;
-                }
-
-                for (DocumentChange dc : value.getDocumentChanges()){
-
-                    if (dc.getType()==DocumentChange.Type.ADDED){
-
-                        profileArrayList.add(dc.getDocument().toObject(Profile.class));
-
-                    }
-
-                    profileAdapter.notifyDataSetChanged();
-                    if (progressDialog.isShowing())
-                    progressDialog.dismiss();
-
-
-
-                }
-            }
-        });
-*/

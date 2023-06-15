@@ -14,40 +14,52 @@
             android:id="@+id/Profileimg"
             android:layout_width="150dp"
             android:layout_height="143dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="72dp"
             android:src="@drawable/user"
-            tools:layout_editor_absoluteX="130dp"
-            tools:layout_editor_absoluteY="87dp" />
+            app:layout_constraintBottom_toBottomOf="@+id/tvpoints"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/eteditpf"
+            tools:src="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/tvusername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            tools:layout_editor_absoluteX="172dp"
-            tools:layout_editor_absoluteY="254dp" />
+            android:layout_marginTop="254dp"
+            android:text="Shady"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvpoints"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            tools:layout_editor_absoluteX="172dp"
-            tools:layout_editor_absoluteY="283dp" />
+            android:layout_marginTop="10dp"
+            android:text="Points:100"
+            app:layout_constraintStart_toStartOf="@+id/tvusername"
+            app:layout_constraintTop_toBottomOf="@+id/tvusername" />
 
         <TextView
             android:id="@+id/eteditpf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="19dp"
             android:text="Edit profile"
-            tools:layout_editor_absoluteX="325dp"
-            tools:layout_editor_absoluteY="17dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/Signout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="19dp"
             android:text="Signout"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="19dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -42,7 +42,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         Task task=data.get(position);
         fbs =FirebaseServices.getInstance();
         holder.ttask.setText(task.getTask());
-        holder.tpoint.setText(task.getPoints());
+        holder.tpoint.setText(""+task.getPoints());
     }
 
     @Override
@@ -57,7 +57,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         public ViewHolder(View itemView) {
             super(itemView);
             ttask=itemView.findViewById(R.id.checktv);
-            tpoint=itemView.findViewById(R.id.tvpoints);
+            tpoint=itemView.findViewById(R.id.checkpoint);
             check=itemView.findViewById(R.id.checkmark);
         }
     }
