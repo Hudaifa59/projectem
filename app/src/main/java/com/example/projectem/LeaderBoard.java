@@ -18,6 +18,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +29,7 @@ import java.util.ArrayList;
 public class LeaderBoard extends Fragment {
     private ArrayList<com.example.projectem.users.Profile> Profile;
     private RecyclerView recyclerViewprofile;
+    ArrayList<Profile> taskArrayList;
     LeaderBoardAdapter leaderBoardAdapte;
     ArrayList<Profile> profileArrayList;
     FirebaseServices fbs;
@@ -102,14 +105,34 @@ public class LeaderBoard extends Fragment {
                 .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        ArrayList<Profile> taskArrayList = new ArrayList<Profile>();
+                        taskArrayList = new ArrayList<Profile>();
                         for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                             Profile task = document.toObject(Profile.class);
                             taskArrayList.add(task);
                         }
-                        leaderBoardAdapte = new LeaderBoardAdapter(taskArrayList, getActivity());
-                        recyclerViewprofile.setAdapter(leaderBoardAdapte);
+                        event();
+
                     }
                 });
+    }
+
+    private void event() {
+        ArrayList<Profile> finalarray=new ArrayList<Profile>();
+        for (int i=0;i<taskArrayList.size();i++){
+            Collections.sort(taskArrayList, new Comparator<Profile>() {
+                @Override
+                public int compare(Profile o1, Profile o2) {
+                    return o1.getPoint().compareTo(o2.getPoint()); // Use o2.compareTo(o1) for descending order
+                }
+            });
+
+
+        }
+        for(int j = taskArrayList.size()-1 ; -1<j;--j)
+        {
+            finalarray.add(taskArrayList.get(j));
+        }
+        leaderBoardAdapte = new LeaderBoardAdapter(finalarray, getActivity());
+        recyclerViewprofile.setAdapter(leaderBoardAdapte);
     }
 }

@@ -87,9 +87,9 @@ public class Profilepage extends Fragment {
     public void onStart() {
         super.onStart();
         fbs=FirebaseServices.getInstance();
-        proimg=getView().findViewById(R.id.profileimage);
+        proimg=getView().findViewById(R.id.Profileimg);
         points= getView().findViewById(R.id.tvpoints);
-        username=getView().findViewById(R.id.upusername);
+        username=getView().findViewById(R.id.tvusername);
         editprof=getView().findViewById(R.id.eteditpf);
         signout=getView().findViewById(R.id.Signout);
         fbs.getFire().collection("Profiles").whereEqualTo("email",fbs.getAuth().getCurrentUser().getEmail())
@@ -103,7 +103,7 @@ public class Profilepage extends Fragment {
 
                     for (DocumentSnapshot doc : querySnapshot.getDocuments()) {
                         profile=doc.toObject(Profile.class);
-                        //eventonchange();
+                        eventonchange();
                     }
                 })
                 .addOnFailureListener(e -> {

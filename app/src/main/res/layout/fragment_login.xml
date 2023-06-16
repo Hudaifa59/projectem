@@ -10,45 +10,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/LoginMain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="55dp"
-            android:text="Login"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/forgotPasswordtv" />
-
         <EditText
             android:id="@+id/EmailLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="138dp"
+            android:layout_marginTop="236dp"
             android:ems="10"
             android:hint="user......"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/PasswordLogin"
+        <Button
+            android:id="@+id/LoginMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:ems="10"
-            android:hint="Password......."
-            android:inputType="textPassword"
+            android:layout_marginTop="44dp"
+            android:text="Login"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EmailLogin" />
+            app:layout_constraintTop_toBottomOf="@+id/forgotPasswordtv" />
 
         <TextView
             android:id="@+id/Signuptv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="sans-serif"
             android:lineSpacingExtra="8sp"
             android:text="Signup"
@@ -66,10 +57,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
+            android:layout_marginTop="4dp"
             android:text="Forgot password "
             android:textColor="#000000"
             app:layout_constraintStart_toStartOf="@+id/PasswordLogin"
             app:layout_constraintTop_toBottomOf="@+id/PasswordLogin" />
+
+        <EditText
+            android:id="@+id/PasswordLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="108dp"
+            android:ems="10"
+            android:hint="Password......."
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/EmailLogin" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -84,8 +84,6 @@ public class Home extends Fragment {
                 if (item.getItemId() == R.id.icCar) {
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.framehome, new CarFragment()).commit();
                 }
-                if (item.getItemId() == R.id.about) {
-                }
                 if (item.getItemId() == R.id.leaderboard) {
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.framehome, new LeaderBoard()).commit();
                 }

@@ -52,6 +52,7 @@ public class LeaderBoardAdapter extends RecyclerView.Adapter<LeaderBoardAdapter.
         fbs =FirebaseServices.getInstance();
         holder.name.setText(p.getUsername());
         holder.number.setText(p.getPoint());
+        holder.position.setText(position+1+".");
         StorageReference storageRef= fbs.getStorage().getInstance().getReference().child(p.getImage());
 
         storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -75,11 +76,12 @@ public class LeaderBoardAdapter extends RecyclerView.Adapter<LeaderBoardAdapter.
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView name , number ;
+        TextView name , number ,position;
         ImageView check;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            position=itemView.findViewById(R.id.textView3);
             name=itemView.findViewById(R.id.TVName);
             number=itemView.findViewById(R.id.TVNumber);
             check=itemView.findViewById(R.id.IVItem);

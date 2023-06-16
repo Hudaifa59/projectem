@@ -22,10 +22,4 @@
         android:id="@+id/leaderboard">
 
     </item>
-    <item
-        android:title="About"
-        android:icon="@drawable/info"
-        android:id="@+id/about">
-
-    </item>
 </menu>
